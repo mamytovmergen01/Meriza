@@ -920,3 +920,52 @@ html, body {
         max-width: 100%;
     }
 }
+/* =================================
+   ФИНАЛЬНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ
+================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.footer-links a {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+@media (max-width: 600px) {
+    footer {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
