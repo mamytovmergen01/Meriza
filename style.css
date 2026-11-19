@@ -1,0 +1,887 @@
+/* ОСНОВА */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f6f1;
+    color: #222;
+    font-family: Georgia, serif;
+}
+
+/* ШАПКА */
+
+.header {
+    background: #171717;
+    color: white;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c5a45b;
+}
+
+.logo {
+    color: #d4b36a;
+    font-size: 34px;
+    letter-spacing: 9px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d4b36a;
+}
+
+.cart {
+    color: #d4b36a;
+    font-size: 14px;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+    min-height: 650px;
+    background:
+        linear-gradient(#00000055, #00000055),
+        url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1800")
+        center 35% / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    padding: 30px;
+}
+
+.hero-subtitle {
+    color: #e0c27c;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 85px;
+    letter-spacing: 15px;
+    margin-bottom: 20px;
+}
+
+.hero-content > p:not(.hero-subtitle) {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: #c5a45b;
+    color: #171717;
+    padding: 17px 40px;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: white;
+}
+
+/* КАТЕГОРИИ */
+
+.categories {
+    text-align: center;
+    padding: 90px 7%;
+}
+
+.categories h2 {
+    font-size: 34px;
+    letter-spacing: 7px;
+}
+
+.categories > p {
+    color: #888;
+    margin: 20px 0 40px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category-list a {
+    padding: 20px 35px;
+    border: 1px solid #c5a45b;
+    color: #222;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.category-list a:hover {
+    background: #171717;
+    color: #d4b36a;
+}
+
+/* КОЛЛЕКЦИЯ */
+
+.catalog {
+    padding: 80px 7%;
+    text-align: center;
+    background: #fff;
+}
+
+.section-label {
+    color: #b39450;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.catalog h2 {
+    font-size: 36px;
+    letter-spacing: 6px;
+}
+
+.catalog > p:not(.section-label) {
+    color: #888;
+    margin: 20px 0 45px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product {
+    text-align: left;
+    background: #ffffff;
+    padding: 0 0 20px;
+    transition: 0.4s ease;
+    border: 1px solid #eee8dc;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px #00000015;
+}
+
+.product img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.product h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 20px 15px 10px;
+    color: #222;
+}
+
+.product p {
+    color: #a18449;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 15px;
+}
+
+.product select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    margin-bottom: 12px;
+    font-family: inherit;
+}
+
+.product button {
+    width: 100%;
+    padding: 15px;
+    background: #171717;
+    color: #d4b36a;
+    border: 1px solid #c5a45b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product button:hover {
+    background: #c5a45b;
+    color: #171717;
+}
+
+/* КОРЗИНА */
+
+.cart {
+    background: #f8f6f1;
+    margin: 60px 7%;
+    padding: 40px;
+    border: 1px solid #c5a45b;
+}
+
+.cart h2 {
+    color: #a18449;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.cart h3 {
+    margin-top: 25px;
+}
+
+#cart-total {
+    color: #a18449;
+}
+
+/* ПОДВАЛ */
+
+footer {
+    background: #171717;
+    color: #d4b36a;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+footer h2 {
+    font-size: 35px;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    margin: 12px;
+    color: #ddd;
+}
+
+/* ТЕЛЕФОНЫ */
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        letter-spacing: 6px;
+    }
+
+    .hero-subtitle {
+        letter-spacing: 3px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product img {
+        height: 400px;
+    }
+
+    .catalog h2,
+    .categories h2 {
+        font-size: 27px;
+    }
+
+    .cart {
+        margin: 30px 4%;
+        padding: 25px;
+    }
+}
+/* MERIZA — оформление заказа */
+
+.order-form {
+    background: #ffffff;
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 850px;
+    border: 1px solid #e8dfce;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.order-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.order-subtitle {
+    color: #b69a62;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.order-header h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    color: #171717;
+    margin: 12px 0;
+    letter-spacing: 1px;
+}
+
+.order-header p {
+    color: #888;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #e5e0d7;
+    border-radius: 6px;
+    background: #faf9f7;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #b69a62;
+    background: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.order-submit {
+    width: 100%;
+    padding: 18px;
+    background: #171717;
+    color: #d8bd85;
+    border: 1px solid #b69a62;
+    font-size: 13px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-submit:hover {
+    background: #b69a62;
+    color: white;
+}
+
+.order-note {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+    .order-form {
+        padding: 22px 16px;
+        margin: 20px 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .order-header h2 {
+        font-size: 24px;
+    }
+}
+/* О БРЕНДЕ MERIZA */
+
+#about {
+    background: #111111;
+    color: #f5f0e6;
+    padding: 70px 25px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#about .section-label {
+    color: #c5a46d;
+    letter-spacing: 4px;
+}
+
+#about h2 {
+    color: #d6b77a;
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+#about p {
+    max-width: 650px;
+    margin: 20px auto;
+    line-height: 1.8;
+}
+
+#about .category-list a {
+    border: 1px solid #c5a46d;
+    color: #d6b77a;
+    background: transparent;
+}
+/* MERIZA — ПРЕМИАЛЬНЫЕ КНОПКИ */
+
+/* Кнопки товаров */
+.product button {
+    background: #171717;
+    color: #d4b36a;
+    border: 1px solid #c5a45b;
+    padding: 15px;
+    border-radius: 0;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.product button:hover {
+    background: #c5a45b;
+    color: #171717;
+}
+
+/* Кнопка главного экрана */
+.hero-button {
+    background: #c5a45b;
+    color: #171717;
+    border: 1px solid #c5a45b;
+    border-radius: 0;
+}
+
+.hero-button:hover {
+    background: transparent;
+    color: white;
+}
+
+/* Кнопка оформления заказа */
+.order-submit {
+    background: #171717;
+    color: #d4b36a;
+    border: 1px solid #c5a45b;
+    border-radius: 0;
+}
+
+.order-submit:hover {
+    background: #c5a45b;
+    color: #171717;
+}
+/* БЛОК ДОВЕРИЯ MERIZA */
+
+#trust {
+    background: #171717;
+    color: #f5f0e6;
+    padding: 80px 7%;
+}
+
+#trust h2 {
+    color: #d4b36a;
+    margin-bottom: 20px;
+}
+
+#trust > p:not(.section-label) {
+    color: #cccccc;
+}
+
+.trust-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.trust-item {
+    padding: 35px 20px;
+    border: 1px solid #8e7445;
+    transition: 0.3s;
+}
+
+.trust-item:hover {
+    transform: translateY(-5px);
+    border-color: #d4b36a;
+}
+
+.trust-item span {
+    color: #d4b36a;
+    font-size: 35px;
+}
+
+.trust-item h3 {
+    color: #d4b36a;
+    font-size: 16px;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.trust-item p {
+    color: #cccccc;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .trust-list {
+        grid-template-columns: 1fr;
+    }
+}
+/* ОБМЕН И ВОЗВРАТ MERIZA */
+
+#returns {
+    background: #f1ede4;
+    padding: 80px 7%;
+    text-align: center;
+}
+
+#returns .section-label {
+    color: #a18449;
+}
+
+#returns h2 {
+    color: #171717;
+    margin-bottom: 25px;
+}
+
+#returns > p {
+    max-width: 750px;
+    margin: 20px auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+#returns .category-list {
+    margin: 35px 0;
+}
+
+#returns .category-list a {
+    border-color: #c5a45b;
+    color: #171717;
+    transition: 0.3s;
+}
+
+#returns .category-list a:hover {
+    background: #171717;
+    color: #d4b36a;
+}
+/* ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ MERIZA */
+
+#privacy {
+    background: #171717;
+    color: #f5f0e6;
+    padding: 80px 7%;
+}
+
+#privacy h2 {
+    color: #d4b36a;
+    margin-bottom: 25px;
+}
+
+#privacy > p {
+    color: #cccccc;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#privacy .trust-item {
+    border: 1px solid #8e7445;
+    background: #202020;
+}
+
+#privacy .trust-item h3 {
+    color: #d4b36a;
+}
+
+#privacy .trust-item p {
+    color: #cccccc;
+}
+/* ССЫЛКИ В ПОДВАЛЕ MERIZA */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.footer-links a {
+    color: #d4b36a;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+/* FAQ MERIZA */
+
+#faq {
+    background: #f8f6f1;
+    padding: 80px 7%;
+}
+
+#faq h2 {
+    color: #171717;
+    margin-bottom: 20px;
+}
+
+.faq-list {
+    max-width: 850px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.faq-item {
+    border-bottom: 1px solid #c5a45b;
+    padding: 22px 10px;
+}
+
+.faq-item summary {
+    color: #171717;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    list-style: none;
+    position: relative;
+    padding-right: 30px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 5px;
+    color: #b39450;
+    font-size: 24px;
+    top: -5px;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-top: 18px;
+    padding-right: 25px;
+}
+/* Плавающая кнопка корзины */
+.floating-cart {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    background: #171717;
+    color: #d4b36a;
+    padding: 14px 22px;
+    border: 1px solid #c5a45b;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.floating-cart:hover {
+    background: #c5a45b;
+    color: #171717;
+}
+
+@media (max-width: 600px) {
+    .floating-cart {
+        right: 12px;
+        bottom: 12px;
+        padding: 12px 18px;
+    }
+}
+/* Анимация плавающей корзины */
+
+@keyframes cartBump {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.15);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-bump {
+    animation: cartBump 0.4s ease;
+}
+/* =================================
+   ВЫДВИЖНАЯ КОРЗИНА MERIZA
+================================= */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    max-width: 90%;
+    height: 100vh;
+    background: #f8f6f1;
+    z-index: 10001;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transition: right 0.35s ease;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c5a45b;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.cart-header h2 {
+    font-size: 21px;
+    color: #171717;
+}
+
+.cart-close {
+    background: #171717;
+    color: #d4b36a;
+    border: 1px solid #c5a45b;
+    width: 38px;
+    height: 38px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+body.cart-open {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .cart-panel {
+        width: 90%;
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+/* ИСПРАВЛЕНИЕ ВЫДВИЖНОЙ КОРЗИНЫ */
+
+#cart.cart-panel {
+    position: fixed !important;
+    top: 0 !important;
+    right: -450px !important;
+    width: 400px;
+    max-width: 90%;
+    height: 100vh;
+    z-index: 10001;
+    margin: 0 !important;
+    display: block !important;
+    visibility: hidden;
+    transition: right 0.35s ease, visibility 0.35s;
+}
+
+#cart.cart-panel.active {
+    right: 0 !important;
+    visibility: visible;
+}
+
+#cart-overlay {
+    pointer-events: none;
+}
+
+#cart-overlay.active {
+    pointer-events: auto;
+}
+
+.floating-cart {
+    z-index: 10002;
+    cursor: pointer;
+}
