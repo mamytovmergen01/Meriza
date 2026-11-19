@@ -885,41 +885,7 @@ body.cart-open {
     z-index: 10002;
     cursor: pointer;
 }
-/* ИСПРАВЛЕНИЕ МОБИЛЬНОЙ ВЕРСИИ */
 
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-#privacy,
-#privacy * {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-wrap: break-word;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.footer-links a {
-    overflow-wrap: normal;
-    word-break: normal;
-    white-space: normal;
-}
-
-@media (max-width: 600px) {
-    section {
-        max-width: 100%;
-    }
-}
 /* =================================
    ФИНАЛЬНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ
 ================================= */
