@@ -970,3 +970,6 @@ footer p {
         padding: 12px 18px;
     }
 }
+.footer-links a[href="#privacy"] {
+    font-size: 12px;
+}
