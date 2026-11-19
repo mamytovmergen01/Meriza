@@ -910,7 +910,9 @@ html, body {
 }
 
 .footer-links a {
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
 }
 
 @media (max-width: 600px) {
