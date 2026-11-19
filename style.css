@@ -265,28 +265,29 @@ nav a:hover {
     color: #a18449;
 }
 
-/* =================================
-   ПОДВАЛ MERIZA
-================================= */
+/* ПОДВАЛ MERIZA */
 
 footer {
     background: #171717;
     color: #d4b36a;
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 12px;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 footer h2 {
-    font-size: 35px;
-    letter-spacing: 10px;
+    font-size: 28px;
+    letter-spacing: 7px;
     margin-bottom: 20px;
 }
 
 footer p {
     margin: 12px 0;
     color: #ddd;
+    overflow-wrap: break-word;
 }
 
 .footer-links {
@@ -295,37 +296,26 @@ footer p {
     align-items: center;
     gap: 16px;
     width: 100%;
+    max-width: 100%;
     margin: 25px auto;
 }
 
 .footer-links a {
     display: block;
+    max-width: 100%;
     color: #d4b36a;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
-    white-space: nowrap;
+    white-space: normal;
     word-break: normal;
+    overflow-wrap: break-word;
     hyphens: none;
+    text-align: center;
 }
 
 .footer-links a:hover {
     color: white;
-}
-
-@media (max-width: 600px) {
-    footer {
-        padding: 40px 12px;
-    }
-
-    footer h2 {
-        font-size: 28px;
-        letter-spacing: 7px;
-    }
-
-    .footer-links a {
-        font-size: 14px;
-    }
 }
 
 /* ТЕЛЕФОНЫ */
