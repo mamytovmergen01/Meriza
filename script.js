@@ -5,6 +5,15 @@
 let cart = [];
 
 const whatsappNumber = "996559100603";
+function chooseColor(color, button) {
+    document.getElementById("lace-color").value = color;
+
+    document.querySelectorAll(".color-swatch").forEach(item => {
+        item.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+}
 
 
 // =================================
