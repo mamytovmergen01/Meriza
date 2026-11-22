@@ -3,10 +3,11 @@
 // =================================
 
 let cart = [];
+let selectedColor = "";
 
 const whatsappNumber = "996559100603";
 function chooseColor(color, button) {
-    document.getElementById("lace-color").value = color;
+    selectedColor = color;
 
     document.querySelectorAll(".color-swatch").forEach(item => {
         item.classList.remove("selected");
@@ -20,16 +21,13 @@ function chooseColor(color, button) {
 // ДОБАВЛЕНИЕ ТОВАРА В КОРЗИНУ
 // =================================
 
-function addToCart(name, price, size, colorId) {
-
-    const colorElement = document.getElementById(colorId);
-
-    if (!colorElement || !colorElement.value) {
+function addToCart(name, price, size) {
+    if (!selectedColor) {
         alert("Пожалуйста, выберите цвет товара.");
         return;
     }
 
-    const color = colorElement.value;
+    const color = selectedColor;
 
     const existingProduct = cart.find(item =>
         item.name === name &&
@@ -41,16 +39,15 @@ function addToCart(name, price, size, colorId) {
         existingProduct.quantity++;
     } else {
         cart.push({
-            name: name,
-            price: price,
-            size: size,
-            color: color,
+            name,
+            price,
+            size,
+            color,
             quantity: 1
         });
     }
 
     updateCart();
-
     openCart();
 }
 

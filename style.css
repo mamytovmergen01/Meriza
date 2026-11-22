@@ -1240,3 +1240,38 @@ footer p {
     outline-offset: 4px;
     border-color: #fff;
 }
+/* МАЛЕНЬКИЕ КРУГЛЫЕ ЦВЕТА */
+
+.color-options {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 0 25px 25px;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
+
+.color-swatch.burgundy {
+    background: #702638;
+}
+
+.color-swatch.brown {
+    background: #76513b;
+}
+
+.color-swatch.navy {
+    background: #172d50;
+}
+
+.color-swatch.selected {
+    outline: 2px solid #a8894e;
+    outline-offset: 3px;
+}
