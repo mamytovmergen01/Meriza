@@ -5,7 +5,7 @@
 let cart = [];
 let selectedColor = "";
 
-const whatsappNumber = "996559100603";
+const whatsappNumber = "79672493084";
 function chooseColor(color, button) {
     selectedColor = color;
 
