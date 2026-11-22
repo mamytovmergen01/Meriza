@@ -973,3 +973,230 @@ footer p {
 .footer-links a[href="#privacy"] {
     font-size: 12px;
 }
+/* =========================================
+   MERIZA — PREMIUM PRODUCT DESIGN
+========================================= */
+
+.catalog {
+    padding: 100px 20px;
+    background: #f8f6f1;
+    text-align: center;
+}
+
+.catalog .section-label {
+    color: #ae8d4e;
+    font-size: 11px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.catalog > h2 {
+    color: #171717;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.catalog > p:not(.section-label) {
+    color: #777;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 55px;
+}
+
+/* КАРТОЧКА */
+
+.catalog .products {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}
+
+.catalog .product {
+    width: 100%;
+    max-width: 440px;
+    padding: 0 0 35px;
+    background: #fff;
+    border: 1px solid #e8e2d7;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    overflow: hidden;
+    transition: 0.35s ease;
+}
+
+.catalog .product:hover {
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.11);
+    transform: translateY(-5px);
+}
+
+/* ФОТОГРАФИЯ */
+
+.catalog .product img {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: contain;
+    object-position: center;
+    background: #f2f0eb;
+    padding: 12px;
+}
+
+/* НАЗВАНИЕ */
+
+.catalog .product h3 {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #171717;
+    margin: 30px 25px 10px;
+}
+
+/* ЦЕНА */
+
+.catalog .product-price {
+    color: #a8894e;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin: 0 25px 25px;
+}
+
+/* ОПИСАНИЕ */
+
+.catalog .product-description {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 25px 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eee9df;
+}
+
+/* ХАРАКТЕРИСТИКИ */
+
+.catalog .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 25px 28px;
+}
+
+.catalog .product-details span {
+    color: #555;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* ВЫБОР ЦВЕТА */
+
+.catalog .product-label {
+    display: block;
+    color: #222;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 25px 12px;
+}
+
+.catalog .product-select {
+    display: block;
+    width: calc(100% - 50px);
+    height: 52px;
+    margin: 0 25px 12px;
+    padding: 0 15px;
+    border: 1px solid #d9d0bf;
+    border-radius: 0;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.catalog .product-select:focus {
+    border-color: #a8894e;
+    box-shadow: 0 0 0 2px rgba(168, 137, 78, 0.12);
+}
+
+/* ПРИМЕЧАНИЕ О ЦВЕТЕ */
+
+.catalog .color-note {
+    color: #999;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 0 25px 25px;
+}
+
+/* КНОПКА */
+
+.catalog .product > button {
+    display: block;
+    width: calc(100% - 50px);
+    height: 55px;
+    margin: 0 25px;
+    border: 1px solid #171717;
+    border-radius: 0;
+    background: #171717;
+    color: #d4b36a;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.catalog .product > button:hover {
+    background: #a8894e;
+    border-color: #a8894e;
+    color: #fff;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media (max-width: 600px) {
+
+    .catalog {
+        padding: 65px 15px;
+    }
+
+    .catalog > h2 {
+        font-size: 27px;
+        letter-spacing: 3px;
+    }
+
+    .catalog > p:not(.section-label) {
+        font-size: 12px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .catalog .product {
+        max-width: 100%;
+    }
+
+    .catalog .product img {
+        height: 390px;
+    }
+
+    .catalog .product h3 {
+        font-size: 25px;
+        margin-top: 25px;
+    }
+
+    .catalog .product-price {
+        font-size: 23px;
+    }
+
+    .catalog .product-description {
+        font-size: 13px;
+    }
+
+}
