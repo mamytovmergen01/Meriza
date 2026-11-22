@@ -1200,3 +1200,43 @@ footer p {
     }
 
 }
+/* MERIZA — COLOR SWATCHES */
+
+.color-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 25px 25px;
+}
+
+.color-swatch {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.color-swatch.burgundy {
+    background: #702638;
+}
+
+.color-swatch.brown {
+    background: #76513b;
+}
+
+.color-swatch.navy {
+    background: #172d50;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.selected {
+    outline: 2px solid #a8894e;
+    outline-offset: 4px;
+    border-color: #fff;
+}

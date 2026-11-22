@@ -76,14 +76,25 @@
                     <span>Размер: Standard</span>
                 </div>
 
-                <label class="product-label" for="lace-color">Выберите цвет</label>
+                <label class="product-label">ВЫБЕРИТЕ ЦВЕТ</label>
 
-                <select id="lace-color" class="product-select">
-                    <option value="">Выберите цвет</option>
-                    <option value="Бордовый">Бордовый</option>
-                    <option value="Коричневый">Коричневый</option>
-                    <option value="Тёмно-синий">Тёмно-синий</option>
-                </select>
+<div class="color-options">
+    <button type="button" class="color-swatch burgundy"
+        onclick="chooseColor('Бордовый', this)" aria-label="Бордовый"></button>
+
+    <button type="button" class="color-swatch brown"
+        onclick="chooseColor('Коричневый', this)" aria-label="Коричневый"></button>
+
+    <button type="button" class="color-swatch navy"
+        onclick="chooseColor('Тёмно-синий', this)" aria-label="Тёмно-синий"></button>
+</div>
+
+<select id="lace-color" style="display:none">
+    <option value="">Выберите цвет</option>
+    <option value="Бордовый">Бордовый</option>
+    <option value="Коричневый">Коричневый</option>
+    <option value="Тёмно-синий">Тёмно-синий</option>
+</select>
 
                 <div class="color-note">
                     Фото товара на сайте представлено в тёмно-синем цвете.
