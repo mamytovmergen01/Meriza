@@ -1,877 +1,348 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>MERIZA — Женская одежда</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- ШАПКА -->
-
     <header class="header">
-
         <div class="logo">MERIZA</div>
-
         <nav>
-    <a href="#home">ГЛАВНАЯ</a>
-    <a href="#categories">КАТЕГОРИИ</a>
-    <a href="#catalog">КОЛЛЕКЦИЯ</a>
-    <a href="#delivery">ДОСТАВКА</a>
-    <a href="#about">О НАС</a>
-    <a href="#cart">КОРЗИНА</a>
-    <a href="#order">ЗАКАЗ</a>
-</nav>
-
+            <a href="#home">ГЛАВНАЯ</a>
+            <a href="#categories">КАТЕГОРИИ</a>
+            <a href="#catalog">КОЛЛЕКЦИЯ</a>
+            <a href="#delivery">ДОСТАВКА</a>
+            <a href="#about">О НАС</a>
+            <a href="#cart" onclick="openCart(); return false;">КОРЗИНА</a>
+            <a href="#order">ЗАКАЗ</a>
+        </nav>
         <div class="header-cart">
             🛍 Корзина: <span id="cart-count">0</span>
         </div>
-
     </header>
 
-
     <!-- ГЛАВНЫЙ ЭКРАН -->
-
     <section class="hero" id="home">
-
         <div class="hero-content">
-
-            <p class="hero-subtitle">
-                WOMEN'S FASHION COLLECTION
-            </p>
-
+            <p class="hero-subtitle">WOMEN'S FASHION COLLECTION</p>
             <h1>MERIZA</h1>
-
             <p>Стиль начинается с тебя</p>
-
-            <a href="#catalog" class="hero-button">
-                СМОТРЕТЬ КОЛЛЕКЦИЮ
-            </a>
-
+            <a href="#catalog" class="hero-button">СМОТРЕТЬ КОЛЛЕКЦИЮ</a>
         </div>
-
     </section>
 
-
     <!-- КАТЕГОРИИ -->
-
     <section class="categories" id="categories">
-
         <h2>НАШИ КАТЕГОРИИ</h2>
-
-        <p>
-            Подбери образ, который подчеркнёт твою индивидуальность
-        </p>
-
+        <p>Подбери образ, который подчеркнёт твою индивидуальность</p>
         <div class="category-list">
-
             <a href="#catalog">ПЛАТЬЯ</a>
             <a href="#catalog">БЛУЗКИ</a>
             <a href="#catalog">КОСТЮМЫ</a>
             <a href="#catalog">КУРТКИ</a>
             <a href="#catalog">НОВИНКИ</a>
-
         </div>
-
     </section>
-
 
     <!-- КАТАЛОГ -->
-
     <section class="catalog" id="catalog">
-
-        <p class="section-label">
-            MERIZA COLLECTION
-        </p>
-
+        <p class="section-label">MERIZA COLLECTION</p>
         <h2>НАША КОЛЛЕКЦИЯ</h2>
-
-        <p>
-            Выбирай свой стиль и создавай неповторимые образы
-        </p>
-
+        <p>Выбирай свой стиль и создавай неповторимые образы</p>
 
         <div class="products">
-
-
-            <!-- ТОВАР 1 -->
-
-            <div class="product">
+            <article class="product">
 
                 <img
-                    src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800"
-                    alt="Элегантное платье"
+                    src="images/lace-elegance-blue.jpg"
+                    alt="LACE ELEGANCE — женский лонгслив тёмно-синего цвета"
                 >
 
-                <h3>Элегантное платье</h3>
+                <h3>LACE ELEGANCE</h3>
+                <p class="product-price">500 сом</p>
 
-                <p>3500 сом</p>
+                <div class="product-description">
+                    Элегантный женский лонгслив с кружевными деталями
+                    на воротнике и манжетах. Мягкий трикотаж,
+                    приталенный силуэт.
+                </div>
 
-                <select id="size1">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
+                <div class="product-details">
+                    <span>Состав: 95% хлопок, 5% эластан</span>
+                    <span>Размер: Standard</span>
+                </div>
+
+                <label class="product-label" for="lace-color">Выберите цвет</label>
+
+                <select id="lace-color" class="product-select">
+                    <option value="">Выберите цвет</option>
+                    <option value="Бордовый">Бордовый</option>
+                    <option value="Коричневый">Коричневый</option>
+                    <option value="Тёмно-синий">Тёмно-синий</option>
                 </select>
 
-                <button onclick="addToCart('Элегантное платье', 3500, 'size1')">
+                <div class="color-note">
+                    Фото товара на сайте представлено в тёмно-синем цвете.
+                </div>
+
+                <button
+                    type="button"
+                    onclick="addToCart('LACE ELEGANCE', 500, 'Standard', 'lace-color')"
+                >
                     В КОРЗИНУ
                 </button>
 
-            </div>
-
-
-            <!-- ТОВАР 2 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1510074229140-bdfc2ff28550?w=800"
-                    alt="Классическая блузка"
-                >
-
-                <h3>Классическая блузка</h3>
-
-                <p>2800 сом</p>
-
-                <select id="size2">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Классическая блузка', 2800, 'size2')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 3 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800"
-                    alt="Стильная куртка"
-                >
-
-                <h3>Стильная куртка</h3>
-
-                <p>5000 сом</p>
-
-                <select id="size3">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Стильная куртка', 5000, 'size3')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 4 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=800"
-                    alt="Элегантная блузка"
-                >
-
-                <h3>Элегантная блузка</h3>
-
-                <p>2800 сом</p>
-
-                <select id="size4">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Элегантная блузка', 2800, 'size4')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 5 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1744616451132-086c11ce9862?w=800"
-                    alt="Женский костюм"
-                >
-
-                <h3>Женский костюм</h3>
-
-                <p>4500 сом</p>
-
-                <select id="size5">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Женский костюм', 4500, 'size5')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 6 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800"
-                    alt="Атласная юбка"
-                >
-
-                <h3>Атласная юбка</h3>
-
-                <p>3200 сом</p>
-
-                <select id="size6">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Атласная юбка', 3200, 'size6')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 7 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1563239853-4fc16cc09296?w=800"
-                    alt="Повседневное платье"
-                >
-
-                <h3>Повседневное платье</h3>
-
-                <p>3800 сом</p>
-
-                <select id="size7">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Повседневное платье', 3800, 'size7')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 8 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800"
-                    alt="Классические брюки"
-                >
-
-                <h3>Классические брюки</h3>
-
-                <p>3000 сом</p>
-
-                <select id="size8">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Классические брюки', 3000, 'size8')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 9 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1747814965209-2301e535f209?w=800"
-                    alt="Женский жакет"
-                >
-
-                <h3>Женский жакет</h3>
-
-                <p>4200 сом</p>
-
-                <select id="size9">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Женский жакет', 4200, 'size9')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 10 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=800"
-                    alt="Летняя рубашка"
-                >
-
-                <h3>Летняя рубашка</h3>
-
-                <p>2500 сом</p>
-
-                <select id="size10">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Летняя рубашка', 2500, 'size10')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 11 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800"
-                    alt="Вечернее платье"
-                >
-
-                <h3>Вечернее платье</h3>
-
-                <p>5500 сом</p>
-
-                <select id="size11">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Вечернее платье', 5500, 'size11')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
-            <!-- ТОВАР 12 -->
-
-            <div class="product">
-
-                <img
-                    src="https://images.unsplash.com/photo-1557445062-41dc80df5cb2?w=800"
-                    alt="Кардиган"
-                >
-
-                <h3>Кардиган</h3>
-
-                <p>3600 сом</p>
-
-                <select id="size12">
-                    <option value="">Выберите размер</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-
-                <button onclick="addToCart('Кардиган', 3600, 'size12')">
-                    В КОРЗИНУ
-                </button>
-
-            </div>
-
-
+            </article>
         </div>
-
     </section>
-
 
     <!-- О БРЕНДЕ MERIZA -->
-
-<section class="categories" id="about">
-
-    <p class="section-label">OUR PHILOSOPHY</p>
-
-    <h2>О БРЕНДЕ MERIZA</h2>
-
-    <p>
-        MERIZA — это больше, чем одежда.
-        Это стиль, уверенность и женственность
-        в каждой детали.
-    </p>
-
-    <div class="category-list">
-
-        <a href="#catalog">
-            ✨ ЭЛЕГАНТНОСТЬ
-        </a>
-
-        <a href="#catalog">
-            ♡ ЖЕНСТВЕННОСТЬ
-        </a>
-
-        <a href="#catalog">
-            ✦ ИНДИВИДУАЛЬНОСТЬ
-        </a>
-
-    </div>
-
-    <p>
-        Мы верим, что каждая женщина заслуживает
-        чувствовать себя красивой и уверенной.
-        Наша коллекция создана для тех,
-        кто ценит стиль и внимание к деталям.
-    </p>
-
-</section>
-    <!-- ДОСТАВКА И ОПЛАТА -->
-
-<section class="categories" id="delivery">
-
-    <p class="section-label">MERIZA SERVICE</p>
-
-    <h2>ДОСТАВКА И ОПЛАТА</h2>
-
-    <p>
-        Мы заботимся о том, чтобы покупки были удобными
-        и приятными.
-    </p>
-
-    <div class="category-list">
-
-        <a href="#order">
-            🚚 БЕСПЛАТНАЯ ДОСТАВКА
-        </a>
-
-        <a href="#order">
-            📍 ТОЛЬКО ПО БИШКЕКУ
-        </a>
-
-        <a href="#order">
-            💬 ОПЛАТА ПО СОГЛАСОВАНИЮ
-        </a>
-
-    </div>
-
-    <p>
-        После оформления заказа наш менеджер свяжется
-        с вами через WhatsApp для подтверждения деталей.
-    </p>
-
-</section>
-    <!-- ПОЧЕМУ MERIZA -->
-
-<section class="categories" id="trust">
-
-    <p class="section-label">WHY MERIZA</p>
-
-    <h2>ПОЧЕМУ MERIZA?</h2>
-
-    <p>Мы стремимся сделать каждую покупку приятной и удобной.</p>
-
-    <div class="trust-list">
-
-        <div class="trust-item">
-            <span>✦</span>
-            <h3>ВНИМАНИЕ К ДЕТАЛЯМ</h3>
-            <p>Мы ценим качество, стиль и эстетику каждой вещи.</p>
+    <section class="categories" id="about">
+        <p class="section-label">OUR PHILOSOPHY</p>
+        <h2>О БРЕНДЕ MERIZA</h2>
+        <p>
+            MERIZA — это больше, чем одежда.
+            Это стиль, уверенность и женственность в каждой детали.
+        </p>
+        <div class="category-list">
+            <a href="#catalog">✨ ЭЛЕГАНТНОСТЬ</a>
+            <a href="#catalog">♡ ЖЕНСТВЕННОСТЬ</a>
+            <a href="#catalog">✦ ИНДИВИДУАЛЬНОСТЬ</a>
         </div>
-
-        <div class="trust-item">
-            <span>♡</span>
-            <h3>ЛИЧНЫЙ ПОДХОД</h3>
-            <p>Каждый заказ подтверждается лично через WhatsApp.</p>
-        </div>
-
-        <div class="trust-item">
-            <span>✧</span>
-            <h3>УДОБНАЯ ДОСТАВКА</h3>
-            <p>Бесплатная доставка по Бишкеку.</p>
-        </div>
-
-    </div>
-
-</section>
-<!-- ОБМЕН И ВОЗВРАТ -->
-<section class="categories" id="returns">
-<p class="section-label">MERIZA CARE</p>
-<h2>ОБМЕН И ВОЗВРАТ</h2>
-<p>Мы хотим, чтобы каждая покупка приносила удовольствие.</p>
-<div class="category-list">
-    <a href="#returns">ОБМЕН РАЗМЕРА</a>
-    <a href="#returns">СОХРАННОСТЬ ТОВАРА</a>
-    <a href="#returns">ПОМОЩЬ ПОКУПАТЕЛЮ</a>
-</div>
-<p>
-    Если вам не подошёл размер, вы можете обратиться к нам
-    для обмена при условии, что товар не был в носке,
-    сохранил первоначальный товарный вид и бирки.
-</p>
-<p>
-    Если вы обнаружили недостаток товара, пожалуйста,
-    свяжитесь с нами для решения вопроса.
-</p>
-<p>
-    По вопросам обмена и возврата обращайтесь к нам через WhatsApp.
-</p>
-</section>
-<!-- ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
-
-<section class="categories" id="privacy">
-
-    <p class="section-label">MERIZA PRIVACY</p>
-
-
-    <p>
-        Мы уважаем личную информацию наших покупателей
-        и ответственно относимся к её использованию.
-    </p>
-
-    <div class="trust-list">
-
-        <div class="trust-item">
-            <span>♡</span>
-            <h3>КАКИЕ ДАННЫЕ МЫ ПОЛУЧАЕМ</h3>
-            <p>
-                Имя, номер телефона, город, адрес доставки
-                и комментарий к заказу.
-            </p>
-        </div>
-
-        <div class="trust-item">
-            <span>✦</span>
-            <h3>ДЛЯ ЧЕГО ОНИ НУЖНЫ</h3>
-            <p>
-                Для подтверждения заказа, связи с покупателем
-                и организации доставки.
-            </p>
-        </div>
-
-        <div class="trust-item">
-            <span>✧</span>
-            <h3>КОНФИДЕНЦИАЛЬНОСТЬ</h3>
-            <p>
-                Мы не используем контактные данные покупателей
-                для посторонних рекламных рассылок.
-            </p>
-        </div>
-
-    </div>
-
-    <p>
-        При оформлении заказа сайт формирует сообщение
-        с данными заказа и открывает WhatsApp.
-        Отправка сообщения осуществляется покупателем.
-    </p>
-
-    <p>
-        Обработка данных в WhatsApp регулируется также
-        правилами соответствующего сервиса.
-    </p>
-
-    <p>
-        По вопросам использования персональных данных
-        можно обратиться к нам через WhatsApp:
-        +996 559 100 603.
-    </p>
-
-</section>
- <!-- FAQ MERIZA -->
-
-<section class="categories" id="faq">
-
-    <p class="section-label">MERIZA QUESTIONS</p>
-
-    <h2>ЧАСТЫЕ ВОПРОСЫ</h2>
-
-    <p>Ответы на вопросы о покупках в MERIZA.</p>
-
-    <div class="faq-list">
-
-        <details class="faq-item">
-            <summary>Как оформить заказ?</summary>
-            <p>Выберите понравившиеся товары, добавьте их в корзину и заполните форму заказа. После этого вы перейдёте в WhatsApp для подтверждения заказа.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>Как выбрать размер?</summary>
-            <p>Выберите доступный размер в карточке товара перед добавлением в корзину.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>Сколько стоит доставка?</summary>
-            <p>На старте MERIZA предлагает бесплатную доставку по Бишкеку.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>Как происходит оплата?</summary>
-            <p>Способ оплаты согласовывается с покупателем при подтверждении заказа через WhatsApp.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>Можно ли обменять товар?</summary>
-            <p>Да, при соблюдении условий обмена, указанных в разделе «Обмен и возврат».</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>Как связаться с MERIZA?</summary>
-            <p>Напишите нам в WhatsApp: +996 559 100 603.</p>
-        </details>
-
-    </div>
-
-</section>
- <!-- КОРЗИНА MERIZA -->
-
-<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-
-<section class="cart cart-panel" id="cart">
-
-    <div class="cart-header">
-        <h2>ВАША КОРЗИНА</h2>
-        <button type="button" class="cart-close" onclick="closeCart()">×</button>
-    </div>
-
-    <div id="cart-items">
-        Корзина пока пуста
-    </div>
-
-    <h3>
-        ИТОГО:
-        <span id="cart-total">0</span> сом
-    </h3>
-    <button
-    type="button"
-    class="order-submit"
-    onclick="goToCheckout()"
->
-    ОФОРМИТЬ ЗАКАЗ
-</button>
-
-</section>
-
-
-    <!-- ОФОРМЛЕНИЕ ЗАКАЗА -->
-
-    <section class="order-form" id="order">
-
-        <div class="order-header">
-
-            <span class="order-subtitle">
-                MERIZA ONLINE STORE
-            </span>
-
-            <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
-
-            <p>
-                Заполните данные для оформления доставки
-            </p>
-
-        </div>
-
-
-        <form onsubmit="event.preventDefault(); checkout();">
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label for="customer-name">
-                        Ваше имя *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customer-name"
-                        placeholder="Введите ваше имя"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="customer-phone">
-                        Номер телефона *
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="customer-phone"
-                        placeholder="+996 XXX XXX XXX"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label for="customer-city">
-                        Город *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customer-city"
-                        placeholder="Например, Бишкек"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="customer-address">
-                        Адрес доставки *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customer-address"
-                        placeholder="Улица, дом, квартира"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="customer-comment">
-                    Комментарий к заказу
-                </label>
-
-                <textarea
-                    id="customer-comment"
-                    rows="4"
-                    placeholder="Дополнительная информация..."
-                ></textarea>
-
-            </div>
-
-
-            <button type="submit" class="order-submit">
-                ОФОРМИТЬ ЗАКАЗ В WHATSAPP
-            </button>
-
-
-            <p class="order-note">
-                После нажатия откроется WhatsApp
-                с информацией о вашем заказе.
-            </p>
-
-        </form>
-
+        <p>
+            Мы верим, что каждая женщина заслуживает чувствовать себя
+            красивой и уверенной. Наша коллекция создана для тех,
+            кто ценит стиль и внимание к деталям.
+        </p>
     </section>
 
+    <!-- ДОСТАВКА И ОПЛАТА -->
+    <section class="categories" id="delivery">
+        <p class="section-label">MERIZA SERVICE</p>
+        <h2>ДОСТАВКА И ОПЛАТА</h2>
+        <p>Мы заботимся о том, чтобы покупки были удобными и приятными.</p>
+        <div class="category-list">
+            <a href="#order">🚚 БЕСПЛАТНАЯ ДОСТАВКА</a>
+            <a href="#order">📍 ТОЛЬКО ПО БИШКЕКУ</a>
+            <a href="#order">💬 ОПЛАТА ПО СОГЛАСОВАНИЮ</a>
+        </div>
+        <p>
+            После оформления заказа наш менеджер свяжется с вами
+            через WhatsApp для подтверждения деталей.
+        </p>
+    </section>
+
+    <!-- ПОЧЕМУ MERIZA -->
+    <section class="categories" id="trust">
+        <p class="section-label">WHY MERIZA</p>
+        <h2>ПОЧЕМУ MERIZA?</h2>
+        <p>Мы стремимся сделать каждую покупку приятной и удобной.</p>
+        <div class="trust-list">
+            <div class="trust-item">
+                <span>✦</span>
+                <h3>ВНИМАНИЕ К ДЕТАЛЯМ</h3>
+                <p>Мы ценим качество, стиль и эстетику каждой вещи.</p>
+            </div>
+            <div class="trust-item">
+                <span>♡</span>
+                <h3>ЛИЧНЫЙ ПОДХОД</h3>
+                <p>Каждый заказ подтверждается лично через WhatsApp.</p>
+            </div>
+            <div class="trust-item">
+                <span>✧</span>
+                <h3>УДОБНАЯ ДОСТАВКА</h3>
+                <p>Бесплатная доставка по Бишкеку.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОБМЕН И ВОЗВРАТ -->
+    <section class="categories" id="returns">
+        <p class="section-label">MERIZA CARE</p>
+        <h2>ОБМЕН И ВОЗВРАТ</h2>
+        <p>Мы хотим, чтобы каждая покупка приносила удовольствие.</p>
+        <div class="category-list">
+            <a href="#returns">ОБМЕН РАЗМЕРА</a>
+            <a href="#returns">СОХРАННОСТЬ ТОВАРА</a>
+            <a href="#returns">ПОМОЩЬ ПОКУПАТЕЛЮ</a>
+        </div>
+        <p>
+            Если вам не подошёл размер, вы можете обратиться к нам
+            для обмена при условии, что товар не был в носке,
+            сохранил первоначальный товарный вид и бирки.
+        </p>
+        <p>
+            Если вы обнаружили недостаток товара, пожалуйста,
+            свяжитесь с нами для решения вопроса.
+        </p>
+        <p>По вопросам обмена и возврата обращайтесь к нам через WhatsApp.</p>
+    </section>
+
+    <!-- ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
+    <section class="categories" id="privacy">
+        <p class="section-label">MERIZA PRIVACY</p>
+        <p>
+            Мы уважаем личную информацию наших покупателей
+            и ответственно относимся к её использованию.
+        </p>
+        <div class="trust-list">
+            <div class="trust-item">
+                <span>♡</span>
+                <h3>КАКИЕ ДАННЫЕ МЫ ПОЛУЧАЕМ</h3>
+                <p>Имя, номер телефона, город, адрес доставки и комментарий к заказу.</p>
+            </div>
+            <div class="trust-item">
+                <span>✦</span>
+                <h3>ДЛЯ ЧЕГО ОНИ НУЖНЫ</h3>
+                <p>Для подтверждения заказа, связи с покупателем и организации доставки.</p>
+            </div>
+            <div class="trust-item">
+                <span>✧</span>
+                <h3>КОНФИДЕНЦИАЛЬНОСТЬ</h3>
+                <p>Мы не используем контактные данные покупателей для посторонних рекламных рассылок.</p>
+            </div>
+        </div>
+        <p>
+            При оформлении заказа сайт формирует сообщение с данными заказа
+            и открывает WhatsApp. Отправка сообщения осуществляется покупателем.
+        </p>
+        <p>Обработка данных в WhatsApp регулируется также правилами соответствующего сервиса.</p>
+        <p>
+            По вопросам использования персональных данных можно обратиться
+            к нам через WhatsApp: +996 559 100 603.
+        </p>
+    </section>
+
+    <!-- FAQ MERIZA -->
+    <section class="categories" id="faq">
+        <p class="section-label">MERIZA QUESTIONS</p>
+        <h2>ЧАСТЫЕ ВОПРОСЫ</h2>
+        <p>Ответы на вопросы о покупках в MERIZA.</p>
+        <div class="faq-list">
+
+            <details class="faq-item">
+                <summary>Как оформить заказ?</summary>
+                <p>Выберите товар, укажите цвет, добавьте его в корзину и заполните форму заказа. После этого вы перейдёте в WhatsApp для подтверждения заказа.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Какой размер у LACE ELEGANCE?</summary>
+                <p>У товара единый размер Standard.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Какие цвета доступны?</summary>
+                <p>Бордовый, коричневый и тёмно-синий.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Сколько стоит доставка?</summary>
+                <p>На старте MERIZA предлагает бесплатную доставку по Бишкеку.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Как происходит оплата?</summary>
+                <p>Способ оплаты согласовывается с покупателем при подтверждении заказа через WhatsApp.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Можно ли обменять товар?</summary>
+                <p>Да, при соблюдении условий обмена, указанных в разделе «Обмен и возврат».</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Как связаться с MERIZA?</summary>
+                <p>Напишите нам в WhatsApp: +996 559 100 603.</p>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- КОРЗИНА MERIZA -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+    <section class="cart cart-panel" id="cart">
+        <div class="cart-header">
+            <h2>ВАША КОРЗИНА</h2>
+            <button type="button" class="cart-close" onclick="closeCart()">×</button>
+        </div>
+
+        <div id="cart-items">Корзина пока пуста</div>
+
+        <h3>ИТОГО: <span id="cart-total">0</span> сом</h3>
+
+        <button type="button" class="order-submit" onclick="goToCheckout()">
+            ОФОРМИТЬ ЗАКАЗ
+        </button>
+    </section>
+
+    <!-- ОФОРМЛЕНИЕ ЗАКАЗА -->
+    <section class="order-form" id="order">
+        <div class="order-header">
+            <span class="order-subtitle">MERIZA ONLINE STORE</span>
+            <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+            <p>Заполните данные для оформления доставки</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); checkout();">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="customer-name">Ваше имя *</label>
+                    <input type="text" id="customer-name" placeholder="Введите ваше имя" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-phone">Номер телефона *</label>
+                    <input type="tel" id="customer-phone" placeholder="+996 XXX XXX XXX" required>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="customer-city">Город *</label>
+                    <input type="text" id="customer-city" placeholder="Например, Бишкек" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-address">Адрес доставки *</label>
+                    <input type="text" id="customer-address" placeholder="Улица, дом, квартира" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="customer-comment">Комментарий к заказу</label>
+                <textarea id="customer-comment" rows="4" placeholder="Дополнительная информация..."></textarea>
+            </div>
+
+            <button type="submit" class="order-submit">ОФОРМИТЬ ЗАКАЗ В WHATSAPP</button>
+            <p class="order-note">После нажатия откроется WhatsApp с информацией о вашем заказе.</p>
+        </form>
+    </section>
 
     <!-- ПОДВАЛ MERIZA -->
-<footer>
-<h2>MERIZA</h2>
-<p>
-    Женственность. Элегантность. Индивидуальность.
-</p>
-<div class="footer-links">
-    <a href="#trust">Почему MERIZA</a>
-    <a href="#returns">Обмен и возврат</a>
-    <a href="#privacy" style="font-size: 11px !important; white-space: nowrap !important; width: auto !important;">
-    КОНФИДЕНЦИАЛЬНОСТЬ
-</a>
-    <a href="#faq">ЧАСТЫЕ ВОПРОСЫ</a>
-</div>
-<p>
-    WhatsApp: +996 559 100 603
-</p>
-<p class="copyright">
-    © 2026 MERIZA. Все права защищены.
-</p>
-</footer>
+    <footer>
+        <h2>MERIZA</h2>
+        <p>Женственность. Элегантность. Индивидуальность.</p>
 
-    
+        <div class="footer-links">
+            <a href="#trust">Почему MERIZA</a>
+            <a href="#returns">Обмен и возврат</a>
+            <a href="#privacy">КОНФИДЕНЦИАЛЬНОСТЬ</a>
+            <a href="#faq">ЧАСТЫЕ ВОПРОСЫ</a>
+        </div>
 
+        <p>WhatsApp: +996 559 100 603</p>
+        <p class="copyright">© 2026 MERIZA. Все права защищены.</p>
+    </footer>
 
-    <!-- JAVASCRIPT -->
+    <button type="button" class="floating-cart" onclick="openCart()">
+        🛒 Корзина (<span id="floating-cart-count">0</span>)
+    </button>
 
     <script src="script.js"></script>
-
 </body>
-<button type="button" class="floating-cart" onclick="openCart()">
-    🛒 Корзина (<span id="floating-cart-count">0</span>)
-</button>
-
 </html>

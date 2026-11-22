@@ -8,65 +8,41 @@ const whatsappNumber = "996559100603";
 
 
 // =================================
-// ДОБАВЛЕНИЕ ТОВАРА
+// ДОБАВЛЕНИЕ ТОВАРА В КОРЗИНУ
 // =================================
 
-function addToCart(name, price, sizeId) {
+function addToCart(name, price, size, colorId) {
 
-    let size = "";
+    const colorElement = document.getElementById(colorId);
 
-    if (sizeId) {
-
-        const sizeElement = document.getElementById(sizeId);
-
-        if (!sizeElement) {
-            alert("Ошибка выбора размера!");
-            return;
-        }
-
-        size = sizeElement.value;
-
-        if (size === "") {
-            alert("Пожалуйста, выберите размер!");
-            return;
-        }
+    if (!colorElement || !colorElement.value) {
+        alert("Пожалуйста, выберите цвет товара.");
+        return;
     }
 
-    const existingProduct = cart.find(product =>
-        product.name === name &&
-        product.price === price &&
-        product.size === size
+    const color = colorElement.value;
+
+    const existingProduct = cart.find(item =>
+        item.name === name &&
+        item.size === size &&
+        item.color === color
     );
 
     if (existingProduct) {
-
         existingProduct.quantity++;
-
     } else {
-
         cart.push({
             name: name,
             price: price,
             size: size,
+            color: color,
             quantity: 1
         });
-
     }
 
     updateCart();
-    const floatingCart = document.querySelector(".floating-cart");
 
-if (floatingCart) {
-    floatingCart.classList.remove("cart-bump");
-
-    void floatingCart.offsetWidth;
-
-    floatingCart.classList.add("cart-bump");
-}
-
-    alert(name + " добавлен в корзину!");
-
-
+    openCart();
 }
 
 
@@ -76,114 +52,70 @@ if (floatingCart) {
 
 function updateCart() {
 
-    const items = document.getElementById("cart-items");
-    const totalElement = document.getElementById("cart-total");
-    const countElement = document.getElementById("cart-count");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
 
-    if (!items || !totalElement || !countElement) {
-        console.error("Не найдены элементы корзины!");
-        return;
-    }
-
-    items.innerHTML = "";
+    const cartCount = document.getElementById("cart-count");
+    const floatingCount = document.getElementById("floating-cart-count");
 
     let total = 0;
-    let totalCount = 0;
+    let count = 0;
+
+    cartItems.innerHTML = "";
 
     if (cart.length === 0) {
 
-        items.textContent = "Корзина пока пуста";
+        cartItems.innerHTML = "<p>Корзина пока пуста</p>";
+
+    } else {
+
+        cart.forEach((item, index) => {
+
+            const itemTotal = item.price * item.quantity;
+
+            total += itemTotal;
+            count += item.quantity;
+
+            const product = document.createElement("div");
+
+            product.className = "cart-item";
+
+            product.innerHTML = `
+                <div class="cart-item-info">
+                    <h3>${item.name}</h3>
+
+                    <p>Цвет: ${item.color}</p>
+                    <p>Размер: ${item.size}</p>
+                    <p>Цена: ${item.price} сом</p>
+
+                    <div class="cart-quantity">
+                        <button onclick="changeQuantity(${index}, -1)">−</button>
+
+                        <span>${item.quantity}</span>
+
+                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+
+                    <p>Сумма: ${itemTotal} сом</p>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})"
+                    >
+                        Удалить
+                    </button>
+                </div>
+            `;
+
+            cartItems.appendChild(product);
+
+        });
 
     }
 
-    cart.forEach((product, index) => {
-
-        const productTotal = product.price * product.quantity;
-
-        total += productTotal;
-        totalCount += product.quantity;
-
-        const div = document.createElement("div");
-
-        div.style.marginBottom = "20px";
-
-        const info = document.createElement("p");
-
-        info.textContent =
-            product.name +
-            (product.size ? " | Размер: " + product.size : "") +
-            " — " + productTotal + " сом";
-
-        div.appendChild(info);
-
-
-        // КНОПКА МИНУС
-
-        const minusButton = document.createElement("button");
-
-        minusButton.type = "button";
-        minusButton.textContent = "−";
-
-        minusButton.onclick = function() {
-            changeQuantity(index, -1);
-        };
-
-        div.appendChild(minusButton);
-
-
-        // КОЛИЧЕСТВО
-
-        const quantityText = document.createElement("span");
-
-        quantityText.textContent = " " + product.quantity + " ";
-
-        div.appendChild(quantityText);
-
-
-        // КНОПКА ПЛЮС
-
-        const plusButton = document.createElement("button");
-
-        plusButton.type = "button";
-        plusButton.textContent = "+";
-
-        plusButton.onclick = function() {
-            changeQuantity(index, 1);
-        };
-
-        div.appendChild(plusButton);
-
-
-        // КНОПКА УДАЛЕНИЯ
-
-        const removeButton = document.createElement("button");
-
-        removeButton.type = "button";
-        removeButton.textContent = "Удалить";
-
-        removeButton.style.marginLeft = "15px";
-
-        removeButton.onclick = function() {
-            removeFromCart(index);
-        };
-
-        div.appendChild(removeButton);
-
-        items.appendChild(div);
-
-    });
-
-    totalElement.textContent = total;
-
-countElement.textContent = totalCount;
-
-// СЧЁТЧИК ПЛАВАЮЩЕЙ КОРЗИНЫ
-
-const floatingCount = document.getElementById("floating-cart-count");
-
-if (floatingCount) {
-    floatingCount.textContent = totalCount;
-}
+    cartTotal.textContent = total;
+    cartCount.textContent = count;
+    floatingCount.textContent = count;
 
 }
 
@@ -192,18 +124,12 @@ if (floatingCount) {
 // ИЗМЕНЕНИЕ КОЛИЧЕСТВА
 // =================================
 
-function changeQuantity(index, amount) {
+function changeQuantity(index, change) {
 
-    if (!cart[index]) {
-        return;
-    }
-
-    cart[index].quantity += amount;
+    cart[index].quantity += change;
 
     if (cart[index].quantity <= 0) {
-
         cart.splice(index, 1);
-
     }
 
     updateCart();
@@ -225,21 +151,69 @@ function removeFromCart(index) {
 
 
 // =================================
-// ОФОРМЛЕНИЕ ЗАКАЗА
+// ОТКРЫТИЕ КОРЗИНЫ
+// =================================
+
+function openCart() {
+
+    document.getElementById("cart").classList.add("active");
+
+    document
+        .getElementById("cart-overlay")
+        .classList.add("active");
+
+}
+
+
+// =================================
+// ЗАКРЫТИЕ КОРЗИНЫ
+// =================================
+
+function closeCart() {
+
+    document.getElementById("cart").classList.remove("active");
+
+    document
+        .getElementById("cart-overlay")
+        .classList.remove("active");
+
+}
+
+
+// =================================
+// ПЕРЕХОД К ОФОРМЛЕНИЮ
+// =================================
+
+function goToCheckout() {
+
+    if (cart.length === 0) {
+        alert("Ваша корзина пуста.");
+        return;
+    }
+
+    closeCart();
+
+    document.getElementById("order").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =================================
+// ОФОРМЛЕНИЕ ЗАКАЗА В WHATSAPP
 // =================================
 
 function checkout() {
 
     if (cart.length === 0) {
-
-        alert("Сначала добавьте товары в корзину!");
-
+        alert("Сначала добавьте товар в корзину.");
         return;
     }
 
     const name = document.getElementById("customer-name").value.trim();
 
-    const customerPhone = document.getElementById("customer-phone").value.trim();
+    const phone = document.getElementById("customer-phone").value.trim();
 
     const city = document.getElementById("customer-city").value.trim();
 
@@ -248,67 +222,74 @@ function checkout() {
     const comment = document.getElementById("customer-comment").value.trim();
 
 
-    if (!name || !customerPhone || !city || !address) {
+    if (!name || !phone || !city || !address) {
 
-        alert("Заполните имя, телефон, город и адрес доставки!");
+        alert("Пожалуйста, заполните все обязательные поля.");
 
         return;
+
     }
 
 
-    // ФОРМИРОВАНИЕ ЗАКАЗА
+    let message = "Здравствуйте! Хочу оформить заказ в MERIZA.\n\n";
 
-    let message = "НОВЫЙ ЗАКАЗ MERIZA\n\n";
+    message += "МОИ ДАННЫЕ:\n";
 
-    message += "Имя покупателя: " + name + "\n";
-
-    message += "Телефон покупателя: " + customerPhone + "\n";
-
+    message += "Имя: " + name + "\n";
+    message += "Телефон: " + phone + "\n";
     message += "Город: " + city + "\n";
+    message += "Адрес: " + address + "\n\n";
 
-    message += "Адрес доставки: " + address + "\n\n";
 
-    message += "ЗАКАЗАННЫЕ ТОВАРЫ:\n\n";
+    message += "МОЙ ЗАКАЗ:\n";
+
 
     let total = 0;
 
-    cart.forEach((product, index) => {
+    cart.forEach((item, index) => {
 
-        const productTotal = product.price * product.quantity;
+        const itemTotal = item.price * item.quantity;
 
-        message +=
-            (index + 1) + ". " +
-            product.name +
-            (product.size ? " | Размер: " + product.size : "") +
-            " | Количество: " + product.quantity +
-            " — " + productTotal + " сом\n";
+        total += itemTotal;
 
-        total += productTotal;
+        message += "\n" + (index + 1) + ". " + item.name + "\n";
+
+        message += "Цвет: " + item.color + "\n";
+
+        message += "Размер: " + item.size + "\n";
+
+        message += "Количество: " + item.quantity + "\n";
+
+        message += "Цена: " + item.price + " сом\n";
+
+        message += "Сумма: " + itemTotal + " сом\n";
 
     });
 
 
-    message += "\nИТОГО: " + total + " сом";
+    message += "\nИТОГО: " + total + " сом\n";
+
+    message += "Доставка: бесплатно по Бишкеку\n";
 
 
     if (comment) {
 
-        message += "\n\nКомментарий: " + comment;
+        message += "\nКомментарий: " + comment + "\n";
 
     }
 
-    message += "\n\nОжидаю подтверждения заказа.";
+
+    message += "\nСпасибо! Жду подтверждения заказа.";
 
 
-    // ОТПРАВКА В WHATSAPP
-
-    const url =
+    const whatsappLink =
         "https://wa.me/" +
         whatsappNumber +
         "?text=" +
         encodeURIComponent(message);
 
-    window.open(url, "_blank");
+
+    window.open(whatsappLink, "_blank");
 
 }
 
@@ -317,37 +298,8 @@ function checkout() {
 // ЗАПУСК МАГАЗИНА
 // =================================
 
-updateCart();
-// ОТКРЫТИЕ КОРЗИНЫ
+document.addEventListener("DOMContentLoaded", function () {
 
-function openCart() {
-    document.getElementById("cart").classList.add("active");
-    document.getElementById("cart-overlay").classList.add("active");
-    document.body.classList.add("cart-open");
-}
+    updateCart();
 
-// ЗАКРЫТИЕ КОРЗИНЫ
-
-function closeCart() {
-    document.getElementById("cart").classList.remove("active");
-    document.getElementById("cart-overlay").classList.remove("active");
-    document.body.classList.remove("cart-open");
-}
-// ПЕРЕХОД К ОФОРМЛЕНИЮ ЗАКАЗА
-
-function goToCheckout() {
-
-    if (cart.length === 0) {
-        alert("Сначала добавьте товары в корзину!");
-        return;
-    }
-
-    closeCart();
-
-    document.getElementById("customer-name").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-    document.getElementById("customer-name").focus();
-}
+});
